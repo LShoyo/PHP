@@ -1,0 +1,21 @@
+edita-usuario.php
+
+DEsafios que teremos:
+
+1 - encontrar o usuario com base no ID que foi passado na URL como parametro
+    a - verificar se teve algo enviado catraves do metodo GET, se a constante $_GET tem valor verdadeiro e se recebeu o parametro id.
+    (if com a constante $_GET)
+
+    b - se passar do item A com todas essas validações quer dizer uqe foi informado um ID na URL, portanto, iremos capturar o ID que estava na URL.
+    (obter o ID que veio através da URL utilizando $_GET)
+    
+    c - obter o conteudo do arquivo usuarios.json(file_get_contents)
+
+    d - transformar o conteudo do arquivo usuarios.json obtido, em um array associativo
+    (json_decode, naõ se esqueça do segundo parametro)
+
+    e - criar um array vazio para adicionar o usuiario que tem o ID correpsondente passado na URL
+    (Criar um array vazio)
+
+    f - Percorrer o array que contem a lista de usuarios e aplicar uma condição para verificar se encontar o usuário que tenha ID correspondente ao ID passado na URL.
+    (foreach na variável que foi criada no item D )
