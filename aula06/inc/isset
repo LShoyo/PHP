@@ -1,0 +1,48 @@
+ISSET
+
+
+o $_GET pode existir mas não estar setado. isset é na verdade 'is set', ou seja, está setada, se possui valores atrelados a ela.
+
+Imagine que temos um formulário sem nenhum campo obrigatório.
+
+Ao clicar no submit, os dados serão enviados e a página declarada no action receberá o get.
+
+Mas se o usuário não preencher nenhum campo, todos virão como NULL, então tentaremos acessar $_GET["nome"], por exemplo, e não vai imprimir nenhum valor (vai dizer que o get nome não tem valor.
+
+Normalmente, num form, usamos com os campos antes de imprimi-los ou atrelá-los a variáveis.
+EMPTY
+
+Ao contrário do isset(), empty() verifica se a variável está vazia. Exemplo de uso:
+
+if ( empty( $_GET["nome"] ) ) {
+   echo "A variável veio vazia";
+}
+
+Atenção: se a variável vier com valor false, é considerada empty().
+
+Exemplo pegadinha:
+
+<?php
+
+   $var = 0;
+
+   if (empty($var)) {
+     echo '$var é considerada empty se seu valor for 0, vazio, false ou não existir<br>';
+   }
+
+   if (isset($var)) {
+      echo '$var está setada mesmo com valor 0 ou false, pois há um valor<br>';
+   }
+
+?>
+
+
+Nesse exemplo, vai cair nas duas situações, pois 0 é considerado como false (vazio), mas ao mesmo tempo o 0 é um valor, então está setada. Confuso né? hehehe
+
+Se trocarmos o valor 0 por false, verão que dá o mesmo resultado.
+
+E se trocarmos o valor 0 por "" (uma string vazia) também, pois só por termos uma string já é um valor, já está setada. Mas... é um valor vazio! 
+
+Porém... se removermos o valor totalmente (deixarmos apenas $var;) aí ela é empty mas não é setada (não é considerada 'isset').
+
+E... se deixarmos $var = " "; (com um espaço entre aspas), não entra na condição do empty(), pois um espaço é diferente de vazio.
